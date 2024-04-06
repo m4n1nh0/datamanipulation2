@@ -87,9 +87,35 @@ class Archive:
 
     @staticmethod
     def edit_file(dados, position, new_register):
+        """
+        Edit position register from list.
+
+        :parameter:
+            dados (list): A lista a ser modificada.
+            position (int): A posição do elemento a ser editado.
+            new_register (list): A lista de registros a ser modificada.
+
+        :exception:
+            IndexError: Se a posição estiver fora da faixa da lista.
+
+        :return:
+            None: O método não retorna nenhum valor.
+        """
         dados[position] = new_register
 
     @staticmethod
     def delete_data(dados, position):
+        """
+        Exclude element register from list.
 
+        :parameter:
+            dados (list): A lista a ser modificada.
+            position (int): A posição do elemento a ser excluído.
+
+        :exception:
+            IndexError: Se a posição estiver fora da faixa da lista.
+
+        :return:
+            None: O método não retorna nenhum valor.
+        """
         del dados[position]
