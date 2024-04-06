@@ -39,3 +39,57 @@ class Archive:
                 datas.append(transparence)
 
         return datas
+
+    def file_write(self, dados):
+        with open(self.path_file, "w", encoding="latin-1") as file:
+            gravador = csv.writer(file, delimiter=";")
+
+            # Escreve cabeçalho
+            gravador.writerow([
+                "CODIGO_ORGAO_SUPERIOR",
+                "NOME_ORGAO_SUPERIOR",
+                "CODIGO_ORGAO",
+                "NOME_ORGAO",
+                "CODIGO_UNIDADE_GESTORA",
+                "NOME_UNIDADE_GESTORA",
+                "CATEGORIA_ECONOMICA",
+                "ORIGEM_RECEITA",
+                "ESPECIE_RECEITA",
+                "DETALHAMENTO",
+                "VALOR_PREVISTO_ATUALIZADO",
+                "VALOR_LANCADO",
+                "VALOR_REALIZADO",
+                "PERCENTUAL_REALIZADO",
+                "DATA_LANCAMENTO",
+                "ANO_EXERCICIO",
+            ])
+
+            # Escreve os dados
+            for registro in dados:
+                gravador.writerow([
+                    registro.codigo_orgao_superior,
+                    registro.nome_orgao_superior,
+                    registro.codigo_orgao,
+                    registro.nome_orgao,
+                    registro.codigo_unidade_gestora,
+                    registro.nome_unidade_gestora,
+                    registro.categoria_economica,
+                    registro.origem_receita,
+                    registro.especie_receita,
+                    registro.detalhamento,
+                    registro.valor_previsto_atualizado,
+                    registro.valor_lancado,
+                    registro.valor_realizado,
+                    registro.percentual_realizado,
+                    registro.data_lancamento,
+                    registro.ano_exercicio,
+                ])
+
+    @staticmethod
+    def edit_file(dados, position, new_register):
+        dados[position] = new_register
+
+    @staticmethod
+    def delete_data(dados, position):
+
+        del dados[position]
