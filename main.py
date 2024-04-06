@@ -34,6 +34,7 @@ if __name__ == '__main__':
         arquivo.delete_data(data, 2)
 
         arquivo.file_write(data)
+        
     else:
         arquivo.create_archive()
 
@@ -59,3 +60,4 @@ if __name__ == '__main__':
         arquivo.edit_file(data, 1, novo_registro)
 
         arquivo.file_write(data)
+        
